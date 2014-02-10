@@ -1,2 +1,2 @@
 #World map
-A world map made with D3.js visualization library.
+Experimental "3d" world map made with D3.js visualization library.

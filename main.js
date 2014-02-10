@@ -19,6 +19,8 @@ window.onload = function(){
 			.append("path")
 			.attr("d",path);
 
+
+
 		moveMap(mapPaths);
 
 	})
