@@ -21,7 +21,6 @@ window.onload = function(){
 			.attr("d",path);
 
 		moveMap(mapPaths);
-		
 
 	})
 
@@ -33,10 +32,12 @@ window.onload = function(){
 			nextRotation = (currentRotation-1)%360;
 			projection.rotate([nextRotation,0]);
 			
-			mapPaths.attr("d",path);
-	        
-	        requestAnimationFrame(moveMap);
-        
+			mapPaths.attr("d",function(d,i){
+				return path(d) !== undefined ? path(d) : "M0 0"; // fix for getting problems parsing d="" on webkit
+			});
+
+			requestAnimationFrame(moveMap);
+
     		}, 1000 / fps);
 
 	
