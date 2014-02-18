@@ -13,10 +13,10 @@ window.onload = function(){
 
 	svg.append("circle").attr("cx",width/2).attr("cy",height/2).attr("r",radius);
 	
-	d3.json("countries.json",function(data){
-
+	d3.json("topocountries.json",function(data){
+		console.log(data);
 		mapPaths = svg.selectAll("path")
-			.data(data.features)
+			.data(topojson.feature(data, data.objects.countries).features)
 			.enter()
 			.append("path")
 			.attr("d",path);
