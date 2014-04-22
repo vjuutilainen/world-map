@@ -46,8 +46,9 @@ window.onload = function(){
 		rotation_dx = d3.event.dx;
 		rotation_dy = d3.event.dy;
 		
-		speed_x = d3.event.dx < 2 ? 0 : d3.event.dx;
-		speed_y = d3.event.dy < 2 ? 0 : d3.event.dy;
+		// limit spinning after the drag
+		speed_x = (d3.event.dx < 2 && d3.event.dx > 0) || (d3.event.dx > -2 && d3.event.dx < 0) ? 0 : d3.event.dx;
+		speed_y = (d3.event.dy < 2 && d3.event.dy > 0) || (d3.event.dy > -2 && d3.event.dy < 0) ? 0 : d3.event.dy;
 
 		rotation_x = (rotation_x+rotation_dx)%360;
 		rotation_y = (rotation_y+rotation_dy)%360;
